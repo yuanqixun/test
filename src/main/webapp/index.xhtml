@@ -1,0 +1,74 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:test="http://java.sun.com/jsf/composite/components/test"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+	<title><ui:define name="title">Application Title</ui:define></title>
+	<meta http-equiv="content-type" content="text/xhtml; charset=UTF-8" />
+</h:head>
+
+<h:body>
+	<h:form id="myForm">
+		<p:toolbar id="toolbar">
+			<p:toolbarGroup id="toolbarButtonGroup">
+				<p:commandButton id="editBtn" value="编辑" />
+			</p:toolbarGroup>
+		</p:toolbar>
+		<p:dataTable id="myDataTable" value="#{tableBean.carListModel}"
+			var="car" selection="#{tableBean.selectedCar}" dblClickSelect="false"
+			selectionMode="single">
+			<f:facet name="header">  
+            Click "View" button after selecting a row to see details  
+        </f:facet>
+			<p:column headerText="Name:">
+				<h:outputText value="#{car.name}" />
+			</p:column>
+			<p:column headerText="Desc:">
+				<h:outputText value="#{car.desc}" />
+			</p:column>
+			<p:column headerText="CreatedBy:">
+				<h:outputText value="#{car.createdBy}" />
+			</p:column>
+			<p:column headerText="CreatedAt:">
+				<h:outputText value="#{car.createdAt}">
+					<f:convertDateTime pattern="yyyy-MM-dd HH:mm" timeZone="GMT+8" />
+				</h:outputText>
+			</p:column>
+		</p:dataTable>
+		<test:dblclickSupport sid="test1" for="myForm\\:myDataTable"/>
+		<p:dataTable id="myDataTable2" value="#{tableBean.carListModel}"
+      var="car" selection="#{tableBean.selectedCar}" dblClickSelect="false"
+      selectionMode="single">
+      <f:facet name="header">  
+            Click "View" button after selecting a row to see details  
+        </f:facet>
+      <p:column headerText="Name:">
+        <h:outputText value="#{car.name}" />
+      </p:column>
+      <p:column headerText="Desc:">
+        <h:outputText value="#{car.desc}" />
+      </p:column>
+      <p:column headerText="CreatedBy:">
+        <h:outputText value="#{car.createdBy}" />
+      </p:column>
+      <p:column headerText="CreatedAt:">
+        <h:outputText value="#{car.createdAt}">
+          <f:convertDateTime pattern="yyyy-MM-dd HH:mm" timeZone="GMT+8" />
+        </h:outputText>
+      </p:column>
+    </p:dataTable>
+    <h:outputScript>
+    function ondblclick2(data){
+    alert('2----'+data);
+    }
+    </h:outputScript>
+    <test:dblclickSupport sid="test2" for="myForm\\:myDataTable2" ondblclick="ondblclick2"/>
+	</h:form>
+</h:body>
+</html>

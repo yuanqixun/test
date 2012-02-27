@@ -1,0 +1,35 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:cc="http://java.sun.com/jsf/composite">
+
+	<cc:interface>
+	 <cc:attribute name="sid" required="true"></cc:attribute>
+	 <cc:attribute name="for" shortDescription="The targe data table id"></cc:attribute>
+	 <cc:attribute name="ondblclick" shortDescription="The double click method"></cc:attribute>
+   
+	</cc:interface>
+	<cc:implementation>
+		<h:outputScript>
+    function _#{cc.attrs.sid}(){
+    jQuery("##{cc.attrs.for}_data tr").dblclick(function(event){
+    var a = jQuery("##{cc.attrs.for}_selection")[0].value;
+    <c:if test="#{not empty cc.attrs.ondblclick}">
+    eval("#{cc.attrs.ondblclick}('"+a+"')");
+    </c:if>
+    <c:if test="#{empty cc.attrs.ondblclick}">
+    alert("#{cc.attrs.sid}----"+a);
+    </c:if>
+    
+    
+    });
+    }
+    jQuery(document).ready(_#{cc.attrs.sid});
+    </h:outputScript>
+	</cc:implementation>
+</ui:composition>
