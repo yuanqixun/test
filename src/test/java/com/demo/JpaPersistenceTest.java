@@ -87,7 +87,11 @@ public class JpaPersistenceTest {
 	private void clearDatabase() throws Exception {
 		utx.begin();
 		em.joinTransaction();
-		
+		List<One> oneList = em.createQuery("select one from One one").getResultList();
+		for (One one : oneList) {
+			em.remove(one);
+		}
+		em.flush();
 		// em.createQuery("delete from Many").executeUpdate();
 		utx.commit();
 	}
