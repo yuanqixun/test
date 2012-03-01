@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class Many implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name = "MANY_ID", nullable = false)
+	@Column(name = "ID", nullable = false)
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String manyId;
@@ -32,7 +32,7 @@ public class Many implements Serializable {
 	 * 设置在“一方”pojo的外键字段上,用mappedBy标识关联
 	 * cascade设置-如果设置为all，则删除子表会导致删除主表
 	 */
-	@JoinColumn(name = "ONE_ID", referencedColumnName = "ONE_ID")
+	@JoinColumn(name = "ONE_ID", referencedColumnName = "ID")
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST,
 			CascadeType.REFRESH })
 	private One oneId;

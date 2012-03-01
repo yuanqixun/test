@@ -14,12 +14,12 @@ import javax.persistence.Table;
 public class OneB implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name = "ONEA_ID", nullable = false)
+	@Column(name = "ID", nullable = false)
 	private String oneaId;
 	
 	@Column(name = "DESCRIPTION")
 	private String description;
-	@JoinColumn(name = "ONEA_ID", referencedColumnName = "ONEA_ID", insertable = false, updatable = false)
+	@JoinColumn(name = "ONEA_ID", referencedColumnName = "ID", insertable = false, updatable = false)
 	// 设置从方指向主方的关联外键，这个ONEA_ID其实是表T_ONEA的主键
 	@OneToOne
 	private OneA oneA;

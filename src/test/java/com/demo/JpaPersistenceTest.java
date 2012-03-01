@@ -5,8 +5,9 @@ package com.demo;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -28,6 +29,8 @@ import org.junit.runner.RunWith;
 
 import com.demo.domain.Many;
 import com.demo.domain.One;
+import com.demo.domain.OneA;
+import com.demo.domain.Tree;
 
 /**
  * @author yqx
@@ -66,6 +69,8 @@ public class JpaPersistenceTest {
 	private void insertData() throws Exception {
 		utx.begin();
 		em.joinTransaction();
+		
+		// inser one2many and many2one data
 		One a = new One();
 		a.setDescription("a-desc");
 		Many b = new Many();
@@ -80,6 +85,25 @@ public class JpaPersistenceTest {
 		a.getManyCollection().add(b2);
 //		em.persist(a);
 		em.merge(a);
+		
+		//inser one2one data
+		OneA oneA = new OneA();
+		oneA.setDescription("oneA-desc");
+		
+		//inser tree data
+		Tree root = new Tree();
+		root.setName("root");
+		
+		Tree tree = new Tree();
+		tree.setName("node-1");
+		tree.setParent(root);
+		
+		Set<Tree> children = new HashSet<Tree>();
+		root.setChildren(children);
+		children.add(tree);
+		
+		em.persist(root);
+		
 		em.flush();
 		utx.commit();
 	}

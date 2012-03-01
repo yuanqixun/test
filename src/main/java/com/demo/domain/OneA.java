@@ -25,7 +25,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class OneA implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name = "ONEA_ID", nullable = false)
+	@Column(name = "ID", nullable = false)
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String oneaId;
