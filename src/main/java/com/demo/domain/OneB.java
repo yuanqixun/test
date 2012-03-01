@@ -16,6 +16,7 @@ public class OneB implements Serializable {
 	@Id
 	@Column(name = "ONEA_ID", nullable = false)
 	private String oneaId;
+	
 	@Column(name = "DESCRIPTION")
 	private String description;
 	@JoinColumn(name = "ONEA_ID", referencedColumnName = "ONEA_ID", insertable = false, updatable = false)

@@ -5,7 +5,7 @@
   version="2.0">
  
   <!-- mysql datasource -->
-  <persistence-unit name="test">
+  <persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
     <jta-data-source>java:jboss/datasources/MySqlDS</jta-data-source>
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
