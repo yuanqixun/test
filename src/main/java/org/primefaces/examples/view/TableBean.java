@@ -13,7 +13,10 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
+import javax.enterprise.context.Conversation;
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.model.ListDataModel;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.examples.domain.Car;
@@ -21,7 +24,12 @@ import org.primefaces.examples.domain.CarModel;
 
 @Named
 @Stateful
+@ConversationScoped
 public class TableBean {
+	
+	@Inject
+	Conversation conversation;
+	
 	private final static String[] colors;
 
 	private final static String[] manufacturers;
