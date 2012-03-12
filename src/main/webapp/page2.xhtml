@@ -1,0 +1,23 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.org/seam/faces"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:test="http://java.sun.com/jsf/composite/components/test"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="https://ajax4jsf.dev.java.net/ajax" template="/template.xhtml">
+
+	<ui:define name="bdp_body">
+		<h:form id="myForm">
+			<h:panelGrid columns="1">
+				<h:outputText id="aa"
+					value="-----------aa(#{conversation.id})------------" />
+				<h:outputText value="one name:#{testBean.many.oneId.oneId}" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

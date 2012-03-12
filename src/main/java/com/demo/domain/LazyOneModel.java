@@ -6,16 +6,20 @@ package com.demo.domain;
 import java.util.List;
 import java.util.Map;
 
+import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
+import com.demo.util.BDP;
+
 /**
  * @author yqx
  * 
  */
+@ConversationScoped
 public class LazyOneModel extends LazyDataModel<One> {
 
 	/**
@@ -24,6 +28,7 @@ public class LazyOneModel extends LazyDataModel<One> {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
+	@BDP
 	EntityManager em;
 	
 	List<One> currentList;

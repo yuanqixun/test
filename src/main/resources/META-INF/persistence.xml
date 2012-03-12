@@ -5,13 +5,13 @@
   version="2.0">
  
   <!-- mysql datasource -->
-  <persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
+  <persistence-unit name="test" transaction-type="JTA">
     <jta-data-source>java:jboss/datasources/MySqlDS</jta-data-source>
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
       <property name="hibernate.hbm2ddl.auto" value="update" />
       <property name="hibernate.show_sql" value="true" />
-      <property name="hibernate.format_sql" value="false" />
+      <property name="hibernate.format_sql" value="true" />
     </properties>
   </persistence-unit>
 </persistence>
