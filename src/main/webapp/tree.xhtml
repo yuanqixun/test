@@ -1,0 +1,75 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.org/seam/faces"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:test="http://java.sun.com/jsf/composite/components/test"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="https://ajax4jsf.dev.java.net/ajax" template="/template.xhtml">
+
+	<ui:define name="bdp_body">
+
+		<h:form>
+			<h:outputScript>
+    var setting = { };
+
+                var zNodes =[
+                        { name:"pNode 01", open:true,
+                                children: [
+                                        { name:"pNode 11",
+                                                children: [
+                                                        { name:"leaf node 111"},
+                                                        { name:"leaf node 112"},
+                                                        { name:"leaf node 113"},
+                                                        { name:"leaf node 114"}
+                                                ]},
+                                        { name:"pNode 12",
+                                                children: [
+                                                        { name:"leaf node 121"},
+                                                        { name:"leaf node 122"},
+                                                        { name:"leaf node 123"},
+                                                        { name:"leaf node 124"}
+                                                ]},
+                                        { name:"pNode 13 - no child", isParent:true}
+                                ]},
+                        { name:"pNode 02",
+                                children: [
+                                        { name:"pNode 21", open:true,
+                                                children: [
+                                                        { name:"leaf node 211"},
+                                                        { name:"leaf node 212"},
+                                                        { name:"leaf node 213"},
+                                                        { name:"leaf node 214"}
+                                                ]},
+                                        { name:"pNode 22",
+                                                children: [
+                                                        { name:"leaf node 221"},
+                                                        { name:"leaf node 222"},
+                                                        { name:"leaf node 223"},
+                                                        { name:"leaf node 224"}
+                                                ]},
+                                        { name:"pNode 23",
+                                                children: [
+                                                        { name:"leaf node 231"},
+                                                        { name:"leaf node 232"},
+                                                        { name:"leaf node 233"},
+                                                        { name:"leaf node 234"}
+                                                ]}
+                                ]}];
+                                jQuery(document).ready(function(){
+                        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+                });
+    
+    </h:outputScript>
+			<div class="content_wrap">
+				<div class="zTreeDemoBackground left">
+					<ul id="treeDemo" class="ztree"></ul>
+				</div>
+			</div>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
