@@ -22,10 +22,22 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+		<servlet-name>Remoting Servlet</servlet-name>
+		<servlet-class>org.jboss.seam.remoting.Remoting</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Remoting Servlet</servlet-name>
+		<url-pattern>/seam/resource/remoting/*</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.seam</url-pattern>
 	</servlet-mapping>
+
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>

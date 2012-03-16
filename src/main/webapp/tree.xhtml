@@ -9,14 +9,22 @@
 	xmlns:test="http://java.sun.com/jsf/composite/components/test"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="https://ajax4jsf.dev.java.net/ajax" template="/template.xhtml">
-
+	<ui:define name="head">
+  ￼<script type="text/javascript"
+			src="seam/resource/remoting/resource/remote.js?compress=false"></script>
+		<script type="text/javascript"
+			src="seam/resource/remoting/interface.js?testRemoteBean"></script>
+	</ui:define>
 	<ui:define name="bdp_body">
-
 		<h:form>
 			<h:outputScript>
-    var setting = { };
-
-                var zNodes =[
+    var setting = { 
+    async: {
+        enable: true,
+        url:Seam.createBean("testRemoteBean").getTreeData(null)
+        }
+        };
+    var zNodes =[
                         { name:"pNode 01", open:true,
                                 children: [
                                         { name:"pNode 11",
@@ -60,7 +68,7 @@
                                                 ]}
                                 ]}];
                                 jQuery(document).ready(function(){
-                        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+                        $.fn.zTree.init($("#treeDemo"), setting);
                 });
     
     </h:outputScript>
