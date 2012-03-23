@@ -1,0 +1,42 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                             "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.org/seam/faces"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:test="http://java.sun.com/jsf/composite/components/test"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="https://ajax4jsf.dev.java.net/ajax" template="/template.xhtml">
+
+	<ui:define name="bdp_body">
+		<f:metadata>
+			<f:event type="preRenderView"
+				listener="#{conversationManager.beginPreRenderView}" />
+			<f:event listener="#{conversationManager.postValidateEvent}"
+				type="postValidate"></f:event>
+		</f:metadata>
+		<h:form id="form2">
+			<h:panelGrid id="grid" columns="3">
+				<h:outputText value="Default: *" />
+				<p:inputText id="default" required="true" />
+				<p:message id="defaultMessage" for="default" />
+
+				<h:outputText value="Text Only: *" />
+				<p:inputText id="textOnly" required="true" />
+				<p:message id="textOnlyMessage" for="textOnly" />
+
+				<h:outputText value="Icon Only: *" />
+				<p:inputText id="iconOnly" required="true" />
+				<p:message id="iconMessage" for="iconOnly" />
+			</h:panelGrid>
+			<p:commandButton id="submitButton"  value="Submit" update="grid,:msg"
+				oncomplete="msgDlg.show();" />
+		</h:form>
+		<p:dialog widgetVar="msgDlg" id="msg">
+		  <h:outputText value="#{conversationManager.message}" rendered="#{!conversationManager.invalid}"/>
+			<h:outputText value="错误消息！" rendered="#{conversationManager.invalid}"/>
+		</p:dialog>
+	</ui:define>
+</ui:composition>

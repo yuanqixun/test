@@ -7,6 +7,9 @@ import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ConversationScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -52,7 +55,11 @@ public class TestBean implements Serializable {
 		this.many = many;
 	}
 
-	
+	public void onSaveListener(ActionEvent event){
+		log.infov("------{0}", event);
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "保存成功！！！"));
+	}
 	
 	
 }

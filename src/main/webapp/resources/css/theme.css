@@ -1,0 +1,101 @@
+.ui-datatable-scrollable-header-box {
+  padding: 0px !important;
+  width: 100%
+}
+
+.ui-treetable-scrollable-header-box {
+  padding: 0px !important;
+  width: 100%
+}
+
+.ui-datatable-scrollable-footer-box {
+  width: 100%
+}
+
+.message {
+  border: 1px solid #FFCC00;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #F0F8FF;
+  font-size: 12px;
+}
+
+.name {
+  font-weight: bold;
+  float: left;
+  clear: left;
+}
+
+.value {
+  
+}
+
+.questionValue {
+  
+}
+
+.error {
+  margin-left: 20px;
+  margin-top: 5px;
+  float: left;
+  padding: 5px;
+  border: 1px solid red;
+}
+
+.errors {
+  color: red;
+}
+
+.userError {
+  color: red;
+}
+
+.userSuccess {
+  color: #006600;
+}
+
+.errors input {
+  border: 1px solid red;
+}
+
+.errors textarea {
+  border: 1px solid red;
+}
+
+.required {
+  color: red;
+  padding-left: 2px;
+}
+
+.column_25 {
+  width: 25px
+}
+
+.column_50 {
+  width: 50px
+}
+
+.column_100 {
+  width: 100px
+}
+
+.column_150 {
+  width: 150px
+}
+
+.column_200 {
+  width: 200px
+}
+
+.column_250 {
+  width: 250px
+}
+
+.column_300 {
+  width: 300px
+}
+
+.column_center {
+  text-align: center;
+}
