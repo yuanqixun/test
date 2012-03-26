@@ -5,12 +5,9 @@ package com.demo.svc;
 
 import java.io.Serializable;
 
-import javax.ejb.Stateful;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import org.jboss.solder.core.Veto;
 
 import com.demo.domain.LazyOneModel;
 import com.demo.domain.One;
@@ -19,7 +16,8 @@ import com.demo.domain.One;
  * @author yqx
  *
  */
-@Veto
+@Named
+@ConversationScoped
 public class DbService implements Serializable {
 	
 	One selectedOne;

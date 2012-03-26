@@ -8,6 +8,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:test="http://java.sun.com/jsf/composite/components/test"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:px="http://primefaces.org/ui/bdp/extension"
 	xmlns:a="https://ajax4jsf.dev.java.net/ajax" template="/template.xhtml">
 	
 	<ui:define name="bdp_body">
@@ -47,7 +48,7 @@
 		</h:form>
 		<h:form>
 		<p:commandButton value="edit" immediate="true"></p:commandButton>
-		  <p:dataTable value="#{dbService.dataModel}" var="one" selectionMode="single" selection="#{dbService.selectedOne}"
+		  <px:dataTable value="#{dbService.dataModel}" var="one" selectionMode="single" selection="#{dbService.selectedOne}"
 		  paginator="true" rows="20">
 		  <p:column headerText="id:">
           <h:outputText value="#{one.oneId}" />
@@ -55,7 +56,7 @@
         <p:column headerText="Desc:">
           <h:outputText value="#{one.description}" />
         </p:column>
-		  </p:dataTable>
+		  </px:dataTable>
 		</h:form>
 		
 	</ui:define>
